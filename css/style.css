@@ -1,0 +1,361 @@
+@charset "utf-8";
+/*Any sizes of device screen
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*General Settings
+---------------------------------------------------------------------------*/
+html,body {height: 100%;}
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #333;
+	font-family: Calibri;
+	font-size: 16px;
+	line-height: 2;	
+	background: #fff;
+	-webkit-text-size-adjust: none;
+}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form {margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
+ul {list-style-type: none;}
+ol {padding-left: 40px;padding-bottom: 15px;}
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
+iframe {width: 100%;}
+
+/*General settings
+---------------------------------------------------------------------------*/
+a {
+	color: #333;
+	transition: 0.5s;
+}
+a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+/*inner
+---------------------------------------------------------------------------*/
+.inner {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+/*Header
+---------------------------------------------------------------------------*/
+header {
+	overflow: hidden;
+	background: #000;
+	color: #fff;
+	width: 94%;	/*It has to be 100% when added with padding (94 + 3 + 3)*/
+	height: 80px;
+	padding: 0 3%;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+	position: fixed;	/*Making the header fixed at the top*/
+	z-index: 1;		/*Keep the header foremost*/
+}
+/*Header Setting (index.html)*/
+#top header {
+	padding: 0;
+	box-shadow: none;
+	width: auto;
+	min-height: 100%;
+	overflow: auto;
+	position: relative;
+	background: #000 url(../images/logo.png) no-repeat center center/25%;	
+}
+
+/*Logo Image in pages excluding index.html*/
+header #logo img {
+	width: 300px;
+	float: left;
+	padding-top: 12px;
+}
+
+/*Menu
+---------------------------------------------------------------------------*/
+/*Menu in the header; pages excluding index.html*/
+#menubar {
+	overflow: hidden;
+	position: relative;
+	padding-top: 20px;	
+	float: right;	
+}
+/*Each menu in the header; pages excluding index.html*/
+#menubar li {
+	float: left;
+	padding-left: 30px;
+}
+#menubar li a {
+	text-decoration: none;
+	display: block;
+	color: #fff;	
+	padding-top: 3px;	/*Same as "border-bottom" and "bottom" in the next block below*/
+}
+/*Underline Aimation Setting*/
+#menubar li::after {
+	transition: 0.2s;	/*animation lasts for 0.2s*/
+	content: "";
+	display: block;
+	border-bottom: 3px solid #fff;	/*Same as "padding-top in the above block and "bottom" below*/
+	position: relative;left: 0px;bottom: -3px;	/*Same as "padding-top in the above block and "border-bottom" above, but keep - sign*/
+}
+/*When mouse on hover menu, does not affect index.html*/
+#menubar li:hover::after,#menubar li.current::after {
+	bottom: 0px;
+}
+
+/*Do not display the menus for small devices
+---------------------------------------------------------------------------*/
+#menubar-s {
+	display: none;
+}
+
+/*Contents
+---------------------------------------------------------------------------*/
+.contents {
+	clear: both;
+	overflow: hidden;
+	padding: 40px 3%;
+}
+
+/*contents in pages excluding index.html*/
+header + #menubar-s + .contents {
+	padding-top: 120px;
+}
+
+/*contents h2 tag*/
+.contents h2 {
+	clear: both;
+	margin-bottom: 20px;
+	font-size: 20px;		
+	background: #000;	
+	border-radius: 30px;	
+	color: #fff;		
+	padding: 5px 20px;	
+}
+
+/*contents h3 tag*/
+.contents h3 {
+	clear: both;
+	margin-bottom: 20px;
+	font-size: 20px;	
+	padding: 3px 20px;	
+	border: 2px solid #ccc;
+	border-radius: 30px;	
+}
+
+/*contents paragraph*/
+.contents p {
+	padding: 0px 20px 15px;
+}
+
+.contents h2 + p,
+.contents h3 + p {
+	margin-top: -10px;
+}
+
+/*Main contents
+---------------------------------------------------------------------------*/
+.main {
+	overflow: hidden;
+	float: right;	
+	width: 72%;	
+	padding-bottom: 30px;
+}
+
+/*Portfolio 
+---------------------------------------------------------------------------*/
+/*list setting*/
+.list {
+	position: relative;
+	overflow: hidden;
+	padding: 20px;
+	border-bottom: 1px solid #dcdcdc;
+	margin: 0 20px;
+	line-height: 1.5;
+}
+/*The first list*/
+.list:first-of-type {
+	border-top: 1px solid #dcdcdc;
+}
+
+/*href in the list*/
+.list a {
+	text-decoration: none;
+	display: block;
+	overflow: hidden;
+	padding: 20px;
+	margin: -20px;
+}
+/*Mouse on hover*/
+.list a:hover {
+	background: #f9f9de;
+}
+/*「→」sign in the list*/
+.list a::before {
+	content: "→";
+	font-size: 12px;
+	display: block;
+	position: absolute;
+	right: 10px;	
+	bottom: 20px;	
+	width: 30px;	
+	line-height: 30px;	
+	text-align: center;
+	background: #333;	
+	color: #fff;
+	border-radius: 50%;	
+	transition: 0.5s;	
+}
+
+.list a:hover::before {
+	background: #000;
+}
+
+/*h4 tag in the list*/
+.list h4 {
+	font-size: 20px;	
+	color: #000;
+	margin-bottom: 10px;
+}
+
+/*a pic in the list list*/
+.list figure img {
+	float: left;	
+	width: 10%;		
+	height: auto;		
+	border-radius: 8px;	
+	margin-right: 20px;
+}
+
+/* Sub contents
+---------------------------------------------------------------------------*/
+/*Sub contents*/
+.sub {
+	float: left;	
+	width: 24%;	
+	padding-bottom: 30px;
+}
+
+/*h2 tag in sub contents*/
+.sub h2 {
+	border-radius: 0;
+	margin-bottom: 0;
+	background: #999;
+	text-align: center;	
+}
+/*p tag in sub contents*/
+.sub p {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/*Menu in sub contents
+---------------------------------------------------------------------------*/
+/*Menu setting*/
+.sub ul.submenu {
+	margin-bottom: 15px;	
+	border-top: solid 1px #dcdcdc;	
+	text-align: center;		
+}
+/*Each menu setting*/
+.sub ul.submenu li a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 10px;
+	border-bottom: solid 1px #dcdcdc;
+	border-left: solid 1px #dcdcdc;	
+	border-right: solid 1px #dcdcdc;	
+	background: #fff;	
+}
+
+/*Box1 in sub contents
+---------------------------------------------------------------------------*/
+.sub .box1 {
+	overflow: hidden;
+	padding: 10px;			
+	margin-bottom: 20px;	
+	border: solid 1px #dcdcdc;
+	background: #fafafa;
+}
+
+/*Copy right
+---------------------------------------------------------------------------*/
+#copyright {
+	clear: both;
+	text-align: center;
+	background: #222;
+	color: #ccc;	
+}
+#copyright a {
+	text-decoration: none;
+	color: #ccc;	
+}
+
+
+/*Table
+---------------------------------------------------------------------------*/
+/*ta1 setting*/
+.ta1 {
+	width: 96%;
+	margin: 0 auto 20px;
+}
+.ta1, .ta1 td, .ta1 th {
+	border: 1px solid #ccc;	
+	padding: 10px 15px;	
+	word-break: break-all;
+}
+/*Table header*/
+.ta1 th.tamidashi {
+	width: auto;
+	text-align: left;	
+	font-size: 18px;	
+	background: #fafafa;
+}
+/*Ta1 left*/
+.ta1 th {
+	width: 140px;	
+	text-align: center;
+	font-weight: normal;
+}
+
+/*Page top sign
+---------------------------------------------------------------------------*/
+#pagetop {
+	clear: both;
+	padding-top: 40px;
+	padding-right: 3%;
+}
+#pagetop a {
+	color: #fff;	
+	font-size: 20px;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	float: right;
+	margin-bottom: 50px;
+	background: #000;	
+	color: #fff;	
+	width: 60px;		
+	line-height: 60px;	
+	border-radius: 50%;	
+}
+/*Mouse on hover*/
+#pagetop a:hover {
+	background: #222;
+}
+
+
+/*Exc
+---------------------------------------------------------------------------*/
+figure.item {padding: 0px 20px 20px;text-align: center;}
+
+
+
+
+
+
+
+
+
+
